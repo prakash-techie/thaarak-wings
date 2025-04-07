@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Baby's World</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #ffebcd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s;
+        }
+        header h1 {
+            margin: 0;
+            color: #ff4500;
+        }
+        main {
+            margin-top: 20px;
+            animation: fadeIn 3s;
+        }
+        main h2 {
+            color: #ff6347;
+        }
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .photo-gallery img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: zoomIn 1s;
+        }
+        .social-media {
+            margin-top: 20px;
+        }
+        .social-media a {
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .social-media img {
+            width: 40px;
+            height: 40px;
+        }
+        footer {
+            margin-top: 20px;
+            color: #808080;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Baby's World</h1>
+    </header>
+    <main>
+        <h2>Meet Our Little Bundle of Joy!</h2>
+        <div class="carousel">
+            <img src="baby_photo1.jpg" alt="Baby Photo 1" class="active">
+            <img src="baby_photo2.jpg" alt="Baby Photo 2">
+            <img src="baby_photo3.jpg" alt="Baby Photo 3">
+        </div>
+        <p>Born on: January 1, 2025</p>
+        <p>Weight: 3.5 kg</p>
+        <p>Height: 50 cm</p>
+        <div class="photo-gallery">
+            <img src="baby_photo4.jpg" alt="Baby Photo 4">
+            <img src="baby_photo5.jpg" alt="Baby Photo 5">
+            <img src="baby_photo6.jpg" alt="Baby Photo 6">
+        </div>
+        <div class="social-media">
+            <a href="https://www.youtube.com/your-channel" target="_blank">
+                <img src="youtube_logo.png" alt="YouTube">
+            </a>
+            <a href="https://t.me/your-channel" target="_blank">
+                <img src="telegram_logo.png" alt="Telegram">
+            </a>
+            <a href="https://www.instagram.com/your-profile" target="_blank">
+                <img src="instagram_logo.png" alt="Instagram">
+            </a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Baby's World. All rights reserved.</p>
+    </footer>
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+        setInterval(() => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }, 3000);
+    </script>
+</body>
+</html>
