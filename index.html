@@ -3,130 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Baby's World</title>
+    <title>Welcome to Thaarak's Baby World</title>
     <style>
+        /* Global reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background: #f7f8fa; /* Soft grayish background */
+            color: #333;
             text-align: center;
-            background-color: #f0f8ff;
-            margin: 0;
-            padding: 20px;
+            padding: 40px;
+            line-height: 1.6;
         }
-        header {
-            background-color: #ffebcd;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 2s;
+
+        /* Main title styling */
+        .title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #5e7a83; /* Gentle teal color */
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-out;
         }
-        header h1 {
-            margin: 0;
-            color: #ff4500;
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
-        main {
-            margin-top: 20px;
-            animation: fadeIn 3s;
+
+        /* Welcome message */
+        .welcome-message {
+            font-size: 1.4rem;
+            color: #4f6d7a;
+            margin-bottom: 50px;
+            font-style: italic;
+            animation: fadeIn 2s ease-in-out;
         }
-        main h2 {
-            color: #ff6347;
+
+        /* Baby Icon with animation */
+        .baby-icon {
+            margin-top: 40px;
+            animation: zoomIn 2s ease-out;
         }
-        .carousel {
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .baby-icon img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .baby-icon img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Baby Rhymes Video Grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            margin-top: 50px;
+        }
+
+        .video-item {
             position: relative;
-            max-width: 100%;
-            margin: auto;
+            width: 100%;
+            height: 150px;
             overflow: hidden;
             border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
         }
-        .carousel img {
+
+        .video-item img {
             width: 100%;
-            height: auto;
-            display: none;
-        }
-        .carousel img.active {
-            display: block;
-        }
-        .photo-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .photo-gallery img {
-            width: 200px;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            animation: zoomIn 1s;
+            transition: transform 0.3s ease;
         }
-        .social-media {
+
+        .video-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .video-item a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* Button Styling */
+        .button {
+            margin-top: 40px;
+            padding: 15px 30px;
+            background-color: #FFB6C1; /* Soft pink */
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #FF69B4; /* Stronger pink on hover */
+            transform: translateY(-2px);
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+ /* Round Baby Image in Hero Section */
+        .round-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
         }
-        .social-media a {
-            margin: 0 10px;
-            text-decoration: none;
+
+        /* Thaarak’s Photo Gallery Section */
+        .gallery {
+            margin-top: 50px;
+            text-align: center;
         }
-        .social-media img {
-            width: 40px;
-            height: 40px;
+
+        .gallery h2 {
+            font-size: 2.5rem;
+            color: #5e7a83;
+            margin-bottom: 30px;
         }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .photo-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item img:hover {
+            transform: scale(1.05);
+        }
+		
+        /* Footer Section */
         footer {
-            margin-top: 20px;
-            color: #808080;
+            margin-top: 80px;
+            font-size: 1rem;
+            color: #7d8c99;
+            font-style: italic;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+
+        footer a {
+            text-decoration: none;
+            color: #FFB6C1;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            margin: 0 15px;
         }
-        @keyframes zoomIn {
-            from { transform: scale(0); }
-            to { transform: scale(1); }
+
+        footer a:hover {
+            color: #FF69B4;
         }
+
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Baby's World</h1>
-    </header>
-    <main>
-        <h2>Meet Our Little Bundle of Joy!</h2>
-        <div class="carousel">
-            <img src="baby_photo1.jpg" alt="Baby Photo 1" class="active">
-            <img src="baby_photo2.jpg" alt="Baby Photo 2">
-            <img src="baby_photo3.jpg" alt="Baby Photo 3">
+    <h1 class="title">Welcome to Thaarak's Baby World</h1>
+    <p class="welcome-message">Join us on a joyful journey filled with laughter, love, and endless memories! 🌟</p>
+    
+    <!-- Baby Icon with smooth zoom animation -->
+    <div class="baby-icon">
+        <img src="assets\logo.jpeg" alt="Cute Baby Icon">
+    </div>
+
+    <!-- Explore Button -->
+    <button class="button" onclick="window.location.href='https://www.youtube.com/@ThaaraganWings'">Explore Thaarak's Journey</button>
+ <section class="gallery">
+        <h2>Thaarak's Photo Memories</h2>
+        <div class="photo-grid">
+            <!-- Photo 1 -->
+            <div class="photo-item">
+                <img src="assets\img1.jpeg" alt="Thaarak Photo 1">
+            </div>
+            <!-- Photo 2 -->
+            <div class="photo-item">
+                <img src="assets\img2.jpeg" alt="Thaarak Photo 2">
+            </div>
+            <!-- Photo 3 -->
+            <div class="photo-item">
+                <img src="assets\img3.jpeg" alt="Thaarak Photo 3">
+            </div>
+			 <div class="photo-item">
+                <img src="assets\img4.jpeg" alt="Thaarak Photo 3">
+            </div>
+            <!-- Add more photos as needed -->
         </div>
-        <p>Born on: January 1, 2025</p>
-        <p>Weight: 3.5 kg</p>
-        <p>Height: 50 cm</p>
-        <div class="photo-gallery">
-            <img src="baby_photo4.jpg" alt="Baby Photo 4">
-            <img src="baby_photo5.jpg" alt="Baby Photo 5">
-            <img src="baby_photo6.jpg" alt="Baby Photo 6">
-        </div>
-        <div class="social-media">
-            <a href="https://www.youtube.com/your-channel" target="_blank">
-                <img src="youtube_logo.png" alt="YouTube">
-            </a>
-            <a href="https://t.me/your-channel" target="_blank">
-                <img src="telegram_logo.png" alt="Telegram">
-            </a>
-            <a href="https://www.instagram.com/your-profile" target="_blank">
-                <img src="instagram_logo.png" alt="Instagram">
+    </section>
+    <!-- Baby Rhymes Video Grid -->
+    <div class="video-grid">
+        <h2>Here's My Shorts</h2>
+
+        <!-- Video 1 -->
+        <div class="video-item">
+            <a href="https://www.youtube.com/shorts/7JEoC_Vs6XQ" target="_blank">
+                <img src="assets\img1.jpeg" alt="Thaarak Joy">
             </a>
         </div>
-    </main>
+        <!-- Video 2 -->
+        <div class="video-item">
+            <a href="https://www.youtube.com/shorts/x-sFXItIEJc" target="_blank">
+                <img src="assets\img2.jpeg" alt="Thaarak Happy Moment">
+            </a>
+        </div>
+        <!-- Video 3 -->
+        <div class="video-item">
+            <a href="https://www.youtube.com/shorts/CfBKXw3ZmDo" target="_blank">
+                <img src="assets\img6.jpg" alt="Thaarak shorts">
+            </a>
+        </div>
+        <!-- Add more videos as needed -->
+    </div>
+
+    <!-- Footer with social media links -->
     <footer>
-        <p>&copy; 2025 Baby's World. All rights reserved.</p>
+        <p>Stay connected with us on:</p>
+        <a href="" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/@ThaaraganWings" target="_blank">YouTube</a>
+        <a href="" target="_blank">Telegram</a>
     </footer>
-    <script>
-        let currentIndex = 0;
-        const images = document.querySelectorAll('.carousel img');
-        setInterval(() => {
-            images[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % images.length;
-            images[currentIndex].classList.add('active');
-        }, 3000);
-    </script>
 </body>
 </html>
